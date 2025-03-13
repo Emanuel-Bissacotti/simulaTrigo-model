@@ -1,0 +1,131 @@
+{
+    "name": "fortran-simula-trigo",
+    "image": "ghcr.io/crops-team/fortran:v1.4.0-dev",
+    "runArgs": ["--name", "fortran-simula-trigo"],
+    "workspaceFolder": "/root/simula-trigo",
+    "mounts": [
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+        "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=ro",
+        "source=${localWorkspaceFolder},target=/root/simula-trigo,type=bind,consistency=delegated"
+    ],
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "fortran.fortls.path": "/opt/conda/envs/dev/bin/fortls",
+                "fortran.linter.extraArgs": [
+                    "-Wall",
+                    "-I/root/simula-trigo/src/model",
+                    "-J/root/simula-trigo/build/mod"
+                ],
+
+                "jupyter.widgetScriptSources": [
+                    "jsdelivr.com",
+                    "unpkg.com"
+                ], 
+                
+                "python.terminal.activateEnvInCurrentTerminal": true,
+                "python.defaultInterpreterPath": "/opt/conda/envs/dev/bin/python",
+                "isort.path": [
+                    "/opt/conda/envs/dev/bin/isort"
+                ],
+                
+                "files.autoSave": "afterDelay",
+                "files.autoSaveDelay": 1000,
+                "editor.inlayHints.enabled": "offUnlessPressed",
+                "editor.acceptSuggestionOnCommitCharacter": true,
+                "editor.acceptSuggestionOnEnter": "on",
+                "editor.hover.enabled": true,
+                "editor.minimap.enabled": false,
+                "editor.parameterHints.enabled": false,
+                "editor.quickSuggestions": {
+                    "comments": "off",
+                    "strings": "off",
+                    "other": "off"
+                },
+                "editor.quickSuggestionsDelay": 10,
+                "editor.suggest.snippetsPreventQuickSuggestions": false,
+                "editor.suggestOnTriggerCharacters": false,
+                "editor.wordBasedSuggestions": "off",
+                "editor.autoClosingBrackets": "never",
+                "editor.inlineSuggest.enabled": true,
+                "editor.autoClosingQuotes": "never",
+                "editor.autoSurround": "never",
+                "editor.suggestSelection": "first",
+                "editor.wordWrapColumn": 150,
+                "editor.mouseWheelZoom": true,
+                "editor.rulers": [
+                    100
+                ],
+                
+                "window.zoomLevel": 0,
+                
+                "makefile.phonyOnlyTargets": true,
+
+                "git.autorefresh": true,
+            },
+            "extensions": [
+                // fortran
+                "fortran-lang.linter-gfortran",
+                
+                // cmake
+                "ms-vscode.cmake-tools",
+
+                // python
+                "ms-python.python",
+                "donjayamanne.python-environment-manager",
+                "benjamin-simmonds.pythoncpp-debug",
+                "guyskk.language-cython",
+                "kevinrose.vsc-python-indent",
+                "ms-toolsai.jupyter",
+                
+                // git helpers
+                "donjayamanne.githistory",
+                "codezombiech.gitignore",
+                "ziyasal.vscode-open-in-github",
+                "letmaik.git-tree-compare",
+                "GitWorktrees.git-worktrees",
+                "mhutchie.git-graph",
+                "GitHub.vscode-pull-request-github",
+
+                // GitHub actions
+                "cschleiden.vscode-github-actions", 
+                "me-dutour-mathieu.vscode-github-actions", 
+                
+                // markdown helpers
+                "csholmq.excel-to-markdown-table",
+                "bierner.github-markdown-preview",
+                "yzhang.markdown-all-in-one",
+                "bierner.markdown-checkbox",
+                "zaaack.markdown-editor",
+                "bierner.markdown-emoji",
+                "bierner.markdown-footnotes",
+                "bierner.markdown-preview-github-styles",
+                "bierner.markdown-mermaid",
+                "takumii.markdowntable",
+                "xenny.markdown-table",
+                "darkriszty.markdown-table-prettify",
+
+                // autocomplete
+                // "github.copilot",
+                "visualstudioexptteam.vscodeintellicode",
+                "christian-kohler.path-intellisense",
+                "jgclark.vscode-todo-highlight",
+
+                // diversos
+                "ms-azuretools.vscode-docker",
+                "sirtori.indenticator",
+                "berublan.vscode-log-viewer",
+                "marclipovsky.string-manipulation",
+                "albymor.increment-selection",
+                "grapecity.gc-excelviewer",
+                "esbenp.prettier-vscode",
+                "savioserra.theme-switcher",
+                "gruntfuggly.todo-tree",
+                "stuart.unique-window-colors",
+                "redhat.vscode-yaml",
+                "tamasfe.even-better-toml",
+                "ms-vsliveshare.vsliveshare"
+             ]
+         }
+     }
+ }
